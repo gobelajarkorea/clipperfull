@@ -1,0 +1,7 @@
+<resources>
+<style name="Theme.AutoClipper" parent="Theme.Material3.DayNight.NoActionBar">
+    <item name="android:fontFamily">sans</item>
+    <item name="android:colorAccent">@color/purple_500</item>
+    <item name="android:navigationBarColor">@android:color/black</item>
+</style>
+</resources>
