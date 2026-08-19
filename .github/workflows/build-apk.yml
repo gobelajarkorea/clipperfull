@@ -3,14 +3,37 @@ name: Build AutoClipper AI v6
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:
+      - main
+
+permissions:
+  contents: read
 
 jobs:
   build:
+    name: Build APK
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Check project structure
+        run: |
+          echo "=== ROOT ==="
+          ls -la
+
+          echo "=== APP ==="
+          ls -la app
+
+          echo "=== MAIN ==="
+          ls -la app/src/main
+
+          echo "=== BUILD FILES ==="
+          test -f settings.gradle && echo "settings.gradle OK"
+          test -f build.gradle && echo "build.gradle OK"
+          test -f app/build.gradle && echo "app/build.gradle OK"
+          test -f app/src/main/AndroidManifest.xml && echo "AndroidManifest.xml OK"
 
       - name: Setup Java 17
         uses: actions/setup-java@v4
@@ -18,14 +41,23 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Setup Gradle
+      - name: Setup Gradle 8.10.2
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10.2'
 
-      - name: Generate Gradle wrapper
-        run: gradle wrapper --gradle-version 8.10.2
+      - name: Check Gradle
+        run: |
+          gradle --version
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: |
+          gradle --no-daemon assembleDebug --stacktrace
+
+      - name: Check APK
+        run: |
+          echo "=== APK ==="
+          find app/build/outputs -type f -name "*.apk" -print
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
