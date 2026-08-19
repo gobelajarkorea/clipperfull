@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout android:orientation="vertical" android:padding="20dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+<TextView android:text="AutoClipper AI v6" android:textSize="30sp" android:textStyle="bold" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<TextView android:text="Gemini langsung di APK • analisis video panjang • potong MP4 lokal" android:textSize="15sp" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+<TextView android:text="Gemini API Keys" android:textSize="20sp" android:textStyle="bold" android:layout_marginTop="24dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<EditText android:id="@+id/keyInput" android:hint="AIza..." android:inputType="text" android:singleLine="true" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+<Button android:id="@+id/addKey" android:text="+ Tambah Key" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" />
+<Button android:id="@+id/checkKey" android:text="Cek Key" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" />
+</LinearLayout>
+<Button android:id="@+id/deleteKey" android:text="Hapus Semua Key" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<TextView android:id="@+id/keyStatus" android:text="Belum ada API key." android:layout_width="match_parent" android:layout_height="wrap_content" />
+<TextView android:id="@+id/checkResult" android:layout_marginTop="5dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+<TextView android:text="Video sumber" android:textSize="20sp" android:textStyle="bold" android:layout_marginTop="24dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<TextView android:id="@+id/videoPath" android:text="Belum memilih video" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<Button android:id="@+id/pickVideo" android:text="PILIH VIDEO MP4" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<TextView android:text="YouTube URL (opsional)" android:textSize="16sp" android:layout_marginTop="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<EditText android:id="@+id/youtubeUrl" android:hint="https://youtube.com/watch?v=..." android:inputType="textUri" android:singleLine="true" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<TextView android:text="Catatan: APK standalone tidak mengunduh media YouTube. Untuk YouTube, pilih video yang sudah tersimpan di HP atau gunakan backend extractor opsional." android:textSize="13sp" android:layout_marginTop="4dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+<TextView android:text="Durasi clip (detik)" android:textSize="16sp" android:layout_marginTop="18dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<EditText android:id="@+id/clipDuration" android:text="45" android:inputType="number" android:singleLine="true" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<TextView android:text="Jumlah clip" android:textSize="16sp" android:layout_marginTop="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<EditText android:id="@+id/clipCount" android:text="5" android:inputType="number" android:singleLine="true" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<Button android:id="@+id/analyze" android:text="✨ ANALISIS VIDEO DENGAN GEMINI" android:layout_marginTop="18dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<ProgressBar android:id="@+id/progress" android:visibility="gone" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+<TextView android:id="@+id/status" android:text="Siap." android:layout_marginTop="8dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<TextView android:text="Hasil AI" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="20dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<TextView android:id="@+id/result" android:textIsSelectable="true" android:layout_width="match_parent" android:layout_height="wrap_content" />
+</LinearLayout>
+</ScrollView>
